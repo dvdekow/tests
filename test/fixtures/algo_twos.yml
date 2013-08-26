@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  total_view: 1
+  total_click: 1
+  total_buy: 1
+
+two:
+  total_view: 1
+  total_click: 1
+  total_buy: 1
