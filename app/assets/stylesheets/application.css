@@ -23,3 +23,24 @@ header {
     width:100%;
     margin:0px auto;
 }
+table, td, th {
+	border:1px solid #a30046;
+}
+th {
+    background-color:#a30046;
+    color:white;
+}
+#algo1 	{
+	background-color: #e6e6e6;
+	padding-left: 9%;
+	width: 40%;
+	border-radius: 15px;
+}
+#algo2 	{
+	margin-top : -7.4%;
+	margin-left :50%;
+	background-color: #e6e6e6;
+	padding-left: 9%;
+	width: 40%;
+	border-radius: 15px;
+}
