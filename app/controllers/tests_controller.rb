@@ -10,7 +10,6 @@ class TestsController < ApplicationController
     @algo_one = Algo.find(1)
     @algo_two = Algo.find(2)
     @date_updated = @algo_one.updated_at
-    @test = Test.new
 
     startMonitoring
   end
@@ -28,6 +27,7 @@ class TestsController < ApplicationController
   end
 
   def startMonitoring
+    @test = Test.new
     background do
       @server = UDPSocket.new
       @server.bind('localhost', 3000)
@@ -48,14 +48,14 @@ class TestsController < ApplicationController
   end
 
   def detailview
-
+    @allview = Test.where(:listen => 'view')
   end
 
   def detailclicked
-
+    @allclick = Test.where(:listen => 'click')
   end
 
   def detailbought
-
+    @allbought = Test.where(:listen => 'bought')
   end
 end
