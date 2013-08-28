@@ -48,8 +48,11 @@ Tests::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'tests#index'
+  root :to => 'tests#index'
 
+  get '/detailview', to: 'tests#detailview'
+  get '/detailclicked', to: 'tests#detailclicked'
+  get '/detailbought', to: 'tests#detailbought'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

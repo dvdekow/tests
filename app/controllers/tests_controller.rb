@@ -46,4 +46,16 @@ class TestsController < ApplicationController
       ActiveRecord::Base.connection.close
     end
   end
+
+  def detailview
+
+  end
+
+  def detailclicked
+
+  end
+
+  def detailbought
+
+  end
 end

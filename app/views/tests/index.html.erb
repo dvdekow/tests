@@ -8,9 +8,15 @@
       	<th>Total Buy</th>
       </tr>
       <tr>
-      	<td width="20%"><%= @algo_one.product_view %></td>
-      	<td width="20%"><%= @algo_one.recommendation_clicked %></td>
-      	<td width="20%"><%= @algo_one.recommendation_bought %></td>
+      	<td width="20%" align="center">
+          <%= link_to @algo_one.product_view , '/detailview' %>
+        </td>
+      	<td width="20%" align="center">
+          <%= link_to @algo_one.recommendation_clicked , '/detailclicked' %>
+        </td>
+      	<td width="20%" align="center">
+          <%= link_to @algo_one.recommendation_bought , '/detailbought'%>
+        </td>
       </tr>
     </table>
 </div>
@@ -24,9 +30,15 @@
       	<th>Total Buy</th>
       </tr>
       <tr>
-      	<td width="20%"><%= @algo_two.product_view %></td>
-      	<td width="20%"><%= @algo_two.recommendation_clicked %></td>
-      	<td width="20%"><%= @algo_two.recommendation_bought %></td>
+      	<td width="20%" align="center">
+          <%= link_to @algo_two.product_view , '/detailview'%>
+        </td>
+      	<td width="20%" align="center">
+          <%= link_to @algo_two.recommendation_clicked, '/detailclicked' %>
+        </td>
+      	<td width="20%" align="center">
+          <%= link_to @algo_two.recommendation_bought, '/detailbought' %>
+        </td>
       </tr>
     </table>
 </div>
