@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product_view: 1
+  recommendation_clicked: 1
+  recommendation_bought: 1
+
+two:
+  product_view: 1
+  recommendation_clicked: 1
+  recommendation_bought: 1

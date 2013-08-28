@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826025952) do
+ActiveRecord::Schema.define(:version => 20130827101710) do
 
   create_table "algo_ones", :force => true do |t|
     t.integer  "total_view"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(:version => 20130826025952) do
     t.integer  "total_buy"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "algos", :force => true do |t|
+    t.integer  "product_view"
+    t.integer  "recommendation_clicked"
+    t.integer  "recommendation_bought"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "tests", :force => true do |t|

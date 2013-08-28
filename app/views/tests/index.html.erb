@@ -1,5 +1,6 @@
+<p>Data updated : <%= @date_updated %></p>
 <div id="algo1">
-  <h4>Algorhytm 1</h4>
+  <h4 style="padding-top : 8px;">Algorhytm 1</h4>
     <table border="3">
       <tr>
       	<th>Total View</th>
@@ -7,15 +8,15 @@
       	<th>Total Buy</th>
       </tr>
       <tr>
-      	<td width="20%"><%= @algo_one.total_view %></td>
-      	<td width="20%"><%= @algo_one.total_click %></td>
-      	<td width="20%"><%= @algo_one.total_buy %></td>
+      	<td width="20%"><%= @algo_one.product_view %></td>
+      	<td width="20%"><%= @algo_one.recommendation_clicked %></td>
+      	<td width="20%"><%= @algo_one.recommendation_bought %></td>
       </tr>
     </table>
 </div>
 
 <div id="algo2">
-<h4>Algorhytm 2</h4>
+<h4 style="padding-top : 8px;">Algorhytm 2</h4>
   <table border="3">
       <tr>
       	<th>Total View</th>
@@ -23,9 +24,9 @@
       	<th>Total Buy</th>
       </tr>
       <tr>
-      	<td width="20%"><%= @algo_two.total_view %></td>
-      	<td width="20%"><%= @algo_two.total_click %></td>
-      	<td width="20%"><%= @algo_two.total_buy %></td>
+      	<td width="20%"><%= @algo_two.product_view %></td>
+      	<td width="20%"><%= @algo_two.recommendation_clicked %></td>
+      	<td width="20%"><%= @algo_two.recommendation_bought %></td>
       </tr>
     </table>
 </div>
