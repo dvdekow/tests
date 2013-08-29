@@ -50,24 +50,24 @@ class TestsController < ApplicationController
       @test.save
     
     if @test.algo.eql('algo1')
-      if text.eql?('view')
-        @algo_one.product_view += 1
-        @algo_one.save
-      elsif text.eql?('click')
-        @algo_one.recommendation_clicked += 1
-        @algo_one.save
-      elsif text.eql?('bought')
-        @algo_one.recommendation_bought += 1
-        @algo_one.save
+      if @test.listen.eql?('view')
+          @algo_one.product_view += 1
+          @algo_one.save
+      elsif @test.listen.eql?('click')
+          @algo_one.recommendation_clicked += 1
+          @algo_one.save
+      elsif @test.listen.eql?('bought')
+          @algo_one.recommendation_bought += 1
+          @algo_one.save
       end
     elsif @test.algo.eql('algo2')
-      if text.eql?('view')
+      if @test.listen.eql?('view')
         @algo_two.product_view += 1
         @algo_two.save
-      elsif text.eql?('click')
+      elsif @test.listen.eql?('click')
         @algo_two.recommendation_clicked += 1
         @algo_two.save
-      elsif text.eql?('bought')
+      elsif @test.listen.eql?('bought')
         @algo_two.recommendation_bought += 1
         @algo_two.save
       end
@@ -98,5 +98,12 @@ class TestsController < ApplicationController
 
   def efficiency
     @algoused = params[:algo]
+    /average time from click to buy/
+
+    /period time testing/
+
+    /summary <-- masih dipikirkan/
+
+    /comments/
   end
 end
