@@ -53,6 +53,7 @@ Tests::Application.routes.draw do
   get '/detailview', to: 'tests#detailview'
   get '/detailclicked', to: 'tests#detailclicked'
   get '/detailbought', to: 'tests#detailbought'
+  get '/efficiency', to: 'tests#efficiency'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

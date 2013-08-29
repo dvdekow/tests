@@ -18,11 +18,13 @@ class TestsController < ApplicationController
     @algo_one.product_view = 0
     @algo_one.recommendation_bought = 0
     @algo_one.recommendation_clicked = 0
+    @algo_one.efficiency = 0
     @algo_one.save
 
     @algo_two.product_view = 0
     @algo_two.recommendation_bought = 0
     @algo_two.recommendation_clicked = 0
+    @algo_two.efficiency = 0
     @algo_two.save
   end
 
@@ -60,5 +62,9 @@ class TestsController < ApplicationController
   def detailbought
     @algoused = params[:algo]
     @allbought = Test.where(:listen => 'bought')
+  end
+
+  def efficiency
+    @algoused = params[:algo]
   end
 end
