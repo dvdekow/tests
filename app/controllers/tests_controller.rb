@@ -48,14 +48,17 @@ class TestsController < ApplicationController
   end
 
   def detailview
+    @algoused = params[:algo]
     @allview = Test.where(:listen => 'view')
   end
 
   def detailclicked
+    @algoused = params[:algo]
     @allclick = Test.where(:listen => 'click')
   end
 
   def detailbought
+    @algoused = params[:algo]
     @allbought = Test.where(:listen => 'bought')
   end
 end

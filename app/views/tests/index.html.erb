@@ -9,13 +9,13 @@
       </tr>
       <tr>
       	<td width="20%" align="center">
-          <%= link_to @algo_one.product_view , '/detailview' %>
+          <%= link_to @algo_one.product_view , '/detailview?algo=algo1' %>
         </td>
       	<td width="20%" align="center">
-          <%= link_to @algo_one.recommendation_clicked , '/detailclicked' %>
+          <%= link_to @algo_one.recommendation_clicked , '/detailclicked?algo=algo1' %>
         </td>
       	<td width="20%" align="center">
-          <%= link_to @algo_one.recommendation_bought , '/detailbought'%>
+          <%= link_to @algo_one.recommendation_bought , '/detailbought?algo=algo1'%>
         </td>
       </tr>
     </table>
@@ -31,13 +31,13 @@
       </tr>
       <tr>
       	<td width="20%" align="center">
-          <%= link_to @algo_two.product_view , '/detailview'%>
+          <%= link_to @algo_two.product_view , '/detailview?algo=algo2'%>
         </td>
       	<td width="20%" align="center">
-          <%= link_to @algo_two.recommendation_clicked, '/detailclicked' %>
+          <%= link_to @algo_two.recommendation_clicked, '/detailclicked?algo=algo2' %>
         </td>
       	<td width="20%" align="center">
-          <%= link_to @algo_two.recommendation_bought, '/detailbought' %>
+          <%= link_to @algo_two.recommendation_bought, '/detailbought?algo=algo2' %>
         </td>
       </tr>
     </table>

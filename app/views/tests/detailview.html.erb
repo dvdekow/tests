@@ -1,5 +1,4 @@
 <h2>Detail View</h2>
-
 <div id="algo1">
   <table border="3">
   	<tr>
@@ -10,15 +9,9 @@
     <% unless @allview.nil? %>
       <% @allview.each do |v| %>
         <tr>
-          <td>
-            <%= v.product %>
-          </td>
-          <td>
-            <%= v.user %>
-          </td>
-          <td>
-            <%= v.created_at %>
-          </td>
+          <td><%= v.product %></td>
+          <td><%= v.user %></td>
+          <td><%= v.created_at %></td>
         </tr>
       <% end %>
     <% end %>
