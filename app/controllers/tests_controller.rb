@@ -34,7 +34,7 @@ class TestsController < ApplicationController
       @server = UDPSocket.new
       @server.bind('localhost', 3000)
       100.times do
-        text, sender = @server.recvfrom(16)
+        text, sender = @server.recvfrom(32)
         identifyAction(text)
       end
       puts "i am in thread"
@@ -42,38 +42,35 @@ class TestsController < ApplicationController
   end
 
   def identifyAction(text)
-    /cara nentuin algoritma berapa ?/
-    /algoritma 1/
-      @test.listen = text
-    /algoritma 2/
-      @test.listen = text
-    /salah satu/
-      @test.save
+      @response = text.split(' ')
 
-    if text.eql?('view')
-    /counter/
-    /algoritma 1/
-      @algo_one.product_view += 1
-      @algo_one.save
-    /algoritma 2/
-      @algo_two.product_view += 1
-      @algo_two.save
-    elsif text.eql?('click')
-    /counter/
-    /algoritma 1/
-      @algo_one.recommendation_clicked += 1
-      @algo_one.save
-    /algoritma 2/
-      @algo_two.recommendation_clicked += 1
-      @algo_two.save
-    elsif text.eql?('bought')
-    /counter/
-    /algoritma 1/
-      @algo_one.recommendation_bought += 1
-      @algo_one.save
-    /algoritma 2/
-      @algo_two.recommendation_bought += 1
-      @algo_two.save
+      @test.listen = response(0)
+      @test.product = response(1)
+      @test.algo = response(2)
+      @test.save
+    
+    if @test.algo.eql('algo1')
+      if text.eql?('view')
+        @algo_one.product_view += 1
+        @algo_one.save
+      elsif text.eql?('click')
+        @algo_one.recommendation_clicked += 1
+        @algo_one.save
+      elsif text.eql?('bought')
+        @algo_one.recommendation_bought += 1
+        @algo_one.save
+      end
+    elsif @test.algo.eql('algo2')
+      if text.eql?('view')
+        @algo_two.product_view += 1
+        @algo_two.save
+      elsif text.eql?('click')
+        @algo_two.recommendation_clicked += 1
+        @algo_two.save
+      elsif text.eql?('bought')
+        @algo_two.recommendation_bought += 1
+        @algo_two.save
+      end
     end
   end
 
@@ -101,6 +98,5 @@ class TestsController < ApplicationController
 
   def efficiency
     @algoused = params[:algo]
-
   end
 end
