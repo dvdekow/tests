@@ -35,10 +35,45 @@ class TestsController < ApplicationController
       @server.bind('localhost', 3000)
       100.times do
         text, sender = @server.recvfrom(16)
-        @test.listen = text
-        @test.save
+        identifyAction(text)
       end
       puts "i am in thread"
+    end
+  end
+
+  def identifyAction(text)
+    /cara nentuin algoritma berapa ?/
+    /algoritma 1/
+      @test.listen = text
+    /algoritma 2/
+      @test.listen = text
+    /salah satu/
+      @test.save
+
+    if text.eql?('view')
+    /counter/
+    /algoritma 1/
+      @algo_one.product_view += 1
+      @algo_one.save
+    /algoritma 2/
+      @algo_two.product_view += 1
+      @algo_two.save
+    elsif text.eql?('click')
+    /counter/
+    /algoritma 1/
+      @algo_one.recommendation_clicked += 1
+      @algo_one.save
+    /algoritma 2/
+      @algo_two.recommendation_clicked += 1
+      @algo_two.save
+    elsif text.eql?('bought')
+    /counter/
+    /algoritma 1/
+      @algo_one.recommendation_bought += 1
+      @algo_one.save
+    /algoritma 2/
+      @algo_two.recommendation_bought += 1
+      @algo_two.save
     end
   end
 
@@ -66,5 +101,6 @@ class TestsController < ApplicationController
 
   def efficiency
     @algoused = params[:algo]
+
   end
 end
