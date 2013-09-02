@@ -99,11 +99,14 @@ class TestsController < ApplicationController
   def efficiency
     @algoused = params[:algo]
     /average time from click to buy/
+    /ambil data click at => click bought/
 
     /period time testing/
-
+    /count dari click awal sampai akhir/
+    
     /summary <-- masih dipikirkan/
 
     /comments/
+
   end
 end
