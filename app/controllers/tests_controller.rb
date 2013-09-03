@@ -44,6 +44,9 @@ class TestsController < ApplicationController
   def identifyAction(text)
       @response = text.split(' ')
 
+      /count user response/
+      @time_click = Time.now
+
       @test.listen = response(0)
       @test.product = response(1)
       @test.algo = response(2)
@@ -56,9 +59,19 @@ class TestsController < ApplicationController
       elsif @test.listen.eql?('click')
           @algo_one.recommendation_clicked += 1
           @algo_one.save
+
+          @time_click = Time.now
+
+          /belum cek session, harusnya di cek/
       elsif @test.listen.eql?('bought')
           @algo_one.recommendation_bought += 1
           @algo_one.save
+
+          @time_bought = Time.now
+          /function buat ngitung delta terus simpan ke database/
+          @time_click.to_f
+          @time_bought.to_f
+          @delta = @time_bought.to_f - @time_click.to_f
       end
     elsif @test.algo.eql('algo2')
       if @test.listen.eql?('view')
@@ -67,9 +80,19 @@ class TestsController < ApplicationController
       elsif @test.listen.eql?('click')
         @algo_two.recommendation_clicked += 1
         @algo_two.save
+
+        @time_click = Time.now
+
+        /belum cek sesssion, harusnya di cek/
       elsif @test.listen.eql?('bought')
         @algo_two.recommendation_bought += 1
         @algo_two.save
+
+        @time_bought =  Time.now
+        /function buat ngitung delta terus simpan ke database/
+        @time_click.to_f
+        @time_bought.to_f
+        @delta = @time_bought.to_f - @time_click.to_f
       end
     end
   end
@@ -103,9 +126,9 @@ class TestsController < ApplicationController
 
     /period time testing/
     /count dari click awal sampai akhir/
-    
-    /summary <-- masih dipikirkan/
 
+    /summary <-- masih dipikirkan/
+    //
     /comments/
 
   end
