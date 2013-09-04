@@ -88,7 +88,7 @@ class TestsController < ApplicationController
         @algo_two.recommendation_bought += 1
         @algo_two.save
 
-        @time_bought =  Time.now
+        @time_bought = Time.now
         /function buat ngitung delta terus simpan ke database/
         @time_click.to_f
         @time_bought.to_f
