@@ -148,7 +148,12 @@ class TestsController < ApplicationController
     end
     /period time testing/
     /count dari click awal sampai akhir/
+      @first = Test.first
+      @last = Test.last
 
+    unless @first.nil? && @last.nil?
+      @period = @last - @first
+    end
     /summary <-- masih dipikirkan/
     //
     /comments/
