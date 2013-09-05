@@ -1,3 +1,3 @@
 class Response < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :duration
 end

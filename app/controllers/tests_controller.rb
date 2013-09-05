@@ -63,15 +63,24 @@ class TestsController < ApplicationController
           @time_click = Time.now
 
           /belum cek session, harusnya di cek/
+          /catet session_id nya/
+
+          /@session_click = get dari parameter/
       elsif @test.listen.eql?('bought')
           @algo_one.recommendation_bought += 1
           @algo_one.save
 
           @time_bought = Time.now
           /function buat ngitung delta terus simpan ke database/
+          /@session_buy = ambil dari parameter url yang dikirim
+          if @session_buy == @session_click
+            hitung delta simpan ke database/
           @time_click.to_f
           @time_bought.to_f
           @delta = @time_bought.to_f - @time_click.to_f
+          @respons = Response.new
+          @respons.duration = @delta
+
       end
     elsif @test.algo.eql('algo2')
       if @test.listen.eql?('view')
@@ -84,15 +93,23 @@ class TestsController < ApplicationController
         @time_click = Time.now
 
         /belum cek sesssion, harusnya di cek/
+        /catet session_id nya/
+
+        /@session_id = get dari parameter/
       elsif @test.listen.eql?('bought')
         @algo_two.recommendation_bought += 1
         @algo_two.save
 
         @time_bought = Time.now
         /function buat ngitung delta terus simpan ke database/
+        /@session_buy = ambil dari parameter url yang dikirim
+        if @session_buy == @session_click
+          hitung delta simpan ke database/
         @time_click.to_f
         @time_bought.to_f
         @delta = @time_bought.to_f - @time_click.to_f
+        @respons = Response.new
+        @respons.duration = @delta
       end
     end
   end
@@ -123,8 +140,12 @@ class TestsController < ApplicationController
     @algoused = params[:algo]
     /average time from click to buy/
     /ambil data click at => click bought/
-    @delta
+    @all_response = Response.all
 
+    @total = @all_response.sum(&:duration)
+    unless @all_response.length == 0
+      @average = @total / @all_response.length
+    end
     /period time testing/
     /count dari click awal sampai akhir/
 
