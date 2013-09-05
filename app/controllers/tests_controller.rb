@@ -123,6 +123,7 @@ class TestsController < ApplicationController
     @algoused = params[:algo]
     /average time from click to buy/
     /ambil data click at => click bought/
+    @delta
 
     /period time testing/
     /count dari click awal sampai akhir/
