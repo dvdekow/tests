@@ -138,22 +138,31 @@ class TestsController < ApplicationController
 
   def efficiency
     @algoused = params[:algo]
+    /accuracy/
+    /banyaknya rekomendasi yang dibeli : jumlah rekomendasi yang diberikan /
+    /ambil tergantung algoritmanya/
+    /ngambil jumlah rekomendasi yang diberikan dari generator/
+    /kalo rekomendasi yang dibeli tinggal ambil tergantung algoritmanya/
+
     /average time from click to buy/
     /ambil data click at => click bought/
-    @all_response = Response.all
+    /cek algoritma berapa/
+        @all_response = Response.all
 
-    @total = @all_response.sum(&:duration)
-    unless @all_response.length == 0
-      @average = @total / @all_response.length
-    end
-    /period time testing/
-    /count dari click awal sampai akhir/
-      @first = Test.first
-      @last = Test.last
+        @total = @all_response.sum(&:duration)
+    
+          unless @all_response.length == 0
+            @average = @total / @all_response.length
+          end
+    
+        /period time testing/
+        /count dari click awal sampai akhir/
+        @first = Test.first
+        @last = Test.last
 
-    unless @first.nil? && @last.nil?
-      @period = @last - @first
-    end
+        unless @first.nil? && @last.nil?
+        @period = @last - @first
+        end
     /summary <-- masih dipikirkan/
     //
     /comments/
